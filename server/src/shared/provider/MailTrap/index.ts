@@ -5,17 +5,16 @@ class MailProvider {
 
     constructor() {
         this.transporter = nodemailer.createTransport({
-            host: process.env.MAIL_HOST,
-            port: process.env.MAIL_PORT,
+            host: 'sandbox.smtp.mailtrap.io',
+            port: 2525,
             debug: true,
             logger: true,
-            secure: process.env.MAIL_SECURITY, 
             tls: {
                 ciphers: 'SSLv3'
             },
             auth: {
-                user: process.env.MAIL_USER,
-                pass: process.env.MAIL_PASS
+                user: 'dafc38b01b0bc6',
+                pass: '1a85ec0166a11f'
             },
         });
     }
@@ -23,7 +22,7 @@ class MailProvider {
     async sendMail() {
         const mail = mailData.sendProvider();
         await this.transporter.sendMail({
-            from: process.env.MAIL_FROM,
+            from: 'saymonmcedo00@gmail.com',
             to: mail,
             subject,
             html: template,

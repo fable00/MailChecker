@@ -1,7 +1,6 @@
 const { Routes } = require('express')
+const useMailRouter = require('../../../modules/mail/infra/routes/mail.routes')
 
-const routes = Routes()
-
-routes.use('/data', mailRouter)
-
-module.exports = routes
+const route = Routes()
+route.use('/data', useMailRouter)
+module.exports = route
