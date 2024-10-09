@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && ts-node src/index.ts"
+  },
+  "author": "Saymon Macedo",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "celebrate": "^15.0.3",
+    "express": "^4.21.1",
+    "nodemailer": "^6.9.15",
+    "youch": "^3.3.4"
+  }
+}
