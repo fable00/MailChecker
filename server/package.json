@@ -2,14 +2,16 @@
   "name": "server",
   "version": "1.0.0",
   "scripts": {
-    "build": "tsc",
-    "start": "tsc && ts-node src/index.ts"
+    "start": "tsx src/index.ts",
+    "build": "tsc"
   },
   "author": "Saymon Macedo",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "ts-node": "^10.9.2",
+    "@types/express": "^5.0.0",
+    "@types/nodemailer": "^6.4.16",
+    "tsx": "^4.19.1",
     "typescript": "^5.6.3"
   },
   "dependencies": {

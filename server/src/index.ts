@@ -1,9 +1,8 @@
-const express = require('express')
-const app = express()
-const useRoute = require('../src/shared/infra/routes/index.routes')
+import express from 'express';
+import { appRoute } from './shared/infra/routes/external.routes';
 
-app.use(express.json())
-app.use(useRoute)
+const app = express();
+const port = 8080;
+app.use(appRoute)
 
-
-app.listen('8080', ()=> console.log('Running on 8080'))
+app.listen(port, (err?: Error) => err ? console.error(`Unable to start server:${err}`) : console.log(`Server running at: ${port}`));

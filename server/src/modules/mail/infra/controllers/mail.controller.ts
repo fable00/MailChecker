@@ -1,9 +1,13 @@
-const mail = require("../../services/MailService")
+import { Request, Response } from "express";
+import { MailService } from "../../services/mail.services.js";
 
-const mailCatcher = async(req: Request, res: Response) =>{
-    const mailData: object = {mail: "testemail@mail.com"}
-    const mailService = new mail.sendProvider(mailData)
-    console.log(mailService)
+export const getEmail = async(req: Request, res: Response) =>{
+    const email = req.params.email    
+    const mailService = new MailService(email)
+    await mailService.sendEmail()
+    res.send({email: mailService.email})
 }
 
-module.exports = { mailCatcher }
+
+
+

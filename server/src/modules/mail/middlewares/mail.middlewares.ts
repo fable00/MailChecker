@@ -1,11 +1,11 @@
-const { celebrate, Segments, Joi } = require('celebrate');
+import { celebrate, Segments, Joi } from "celebrate";
 
-const verifyEmailData = ()=>{
+export const verifyEmailData = ()=>{
     return celebrate({
-        [Segments.BODY]: {
+        [Segments.PARAMS]: {
             email: Joi.string().email().required()
         }
     })        
 }
 
-module.exports = { verifyEmailData }
+console.log(verifyEmailData)

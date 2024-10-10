@@ -1,6 +1,8 @@
-const nodemailer = require('nodemailer');
-const mailData = require('../../../modules/mail/services/MailService')
-class MailProvider {
+import { template, subject } from "./template.js";
+import nodemailer from "nodemailer";
+
+
+export const MailProvider = class {
     transporter: any;
 
     constructor() {
@@ -19,15 +21,16 @@ class MailProvider {
         });
     }
 
-    async sendMail() {
-        const mail = mailData.sendProvider();
+    async sendMail(email: string) {
         await this.transporter.sendMail({
             from: 'saymonmcedo00@gmail.com',
-            to: mail,
-            subject,
-            html: template,
+            to: email,
+            subject: subject,
+            html: template(),
         });
+
+        console.log(`Email Value: ${email}`)
     }
+    
 }
 
-module.exports = MailProvider;
