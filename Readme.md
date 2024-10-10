@@ -30,7 +30,6 @@ SMTP_PORT=
 SMTP_USER=
 SMTP_PASS=
 EMAIL_FROM=
-
 ```
 
 ```
