@@ -6,5 +6,5 @@ export const emailRouter = Router()
 
 emailRouter.use('/:email', verifyEmailData(), getEmail)
 
-console.log(`Email Router Info: ${emailRouter}`)
-console.log(`Email Info: ${getEmail}`)
+//console.log(`Email Router Info: ${emailRouter}`)
+//console.log(`Email Info: ${getEmail}`)

@@ -18,6 +18,7 @@
   "dependencies": {
     "celebrate": "^15.0.3",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "nodemailer": "^6.9.15",
     "youch": "^3.3.4"

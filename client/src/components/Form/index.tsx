@@ -4,8 +4,15 @@ import { Button } from "../Button/styles"
 import { Input } from "../Input/styles"
 import { ErrorMessage } from "../ErrorMessage/styles"
 import { getSendConfirmation } from "../../api/mail"
+import { useNavigate } from "react-router-dom"
+import { useState } from "react"
+import { ModdedBars } from "../Loaders/Bars"
 
 export const Form = () =>{
+
+    const navigate = useNavigate()
+    const [loading, setLoading] = useState(false)
+
     const {register, handleSubmit, formState: { errors } } = useForm({
         defaultValues: {
             email: ""
@@ -16,10 +23,13 @@ export const Form = () =>{
 
     const handleGetEmail = async (data: {email: string})=>{
         try {
+            setLoading(true)
             const result = await getSendConfirmation(data.email)
-            console.log(result)                    
+            navigate('/response', {state : {mail : result}})
         } catch (err) {
             console.error(`An error occurried: ${err}`)
+        }finally{
+            setLoading(false)
         }
     }
 
@@ -29,6 +39,11 @@ export const Form = () =>{
                 <ErrorMessage>{errors.email?.message}</ErrorMessage>
                 <Input {...register('email', {required: 'Por favor preencha esse campo'})} type="email" placeholder="Coloque seu melhor email" />
                 <Button type="submit" >Enviar</Button>
+
+                {loading && (
+                    <ModdedBars />
+                )}
+
             </FormStyle>
         </>
     )

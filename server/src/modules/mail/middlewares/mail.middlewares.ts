@@ -8,4 +8,4 @@ export const verifyEmailData = ()=>{
     })        
 }
 
-console.log(verifyEmailData)
+//console.log(verifyEmailData)
