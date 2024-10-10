@@ -4,7 +4,7 @@ import { verifyEmailData } from "../../middlewares/mail.middlewares.js";
 
 export const emailRouter = Router()
 
-emailRouter.get('/:email', verifyEmailData(), getEmail)
+emailRouter.use('/:email', verifyEmailData(), getEmail)
 
 console.log(`Email Router Info: ${emailRouter}`)
 console.log(`Email Info: ${getEmail}`)

@@ -1,6 +1,5 @@
 import { mailApi } from "../../services/axios";
 
-
 export const getSendConfirmation = async (email: string) =>{
     try {
         const response = await mailApi.get(`data/${email}`)
